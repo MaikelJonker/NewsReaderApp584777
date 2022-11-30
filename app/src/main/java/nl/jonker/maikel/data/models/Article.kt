@@ -1,15 +1,29 @@
 package nl.jonker.maikel.data.models
 
-import java.sql.Timestamp
 
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class Article(
-    val id: Long,
+    @Json(name = "Categories")
+    val categories: List<Category>,
+    @Json(name = "Feed")
     val feed: Int,
-    val title: String,
-    val publishDate: Timestamp,
+    @Json(name = "Id")
+    val id: Int,
+    @Json(name = "Image")
     val image: String,
-    val url: String,
-    val related: List<String> = emptyList(),
-    val categories: List<Category> = emptyList(),
-    val isLiked: Boolean
+    @Json(name = "IsLiked")
+    val isLiked: Boolean,
+    @Json(name = "PublishDate")
+    val publishDate: String,
+    @Json(name = "Related")
+    val related: List<String>,
+    @Json(name = "Summary")
+    val summary: String,
+    @Json(name = "Title")
+    val title: String,
+    @Json(name = "Url")
+    val url: String
 )

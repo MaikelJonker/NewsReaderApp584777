@@ -9,10 +9,14 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.key.Key.Companion.Home
 import androidx.compose.ui.tooling.preview.Preview
+import dagger.hilt.android.AndroidEntryPoint
+import nl.jonker.maikel.ui.home.Home
 import nl.jonker.maikel.ui.theme.NewsReaderApp584777Theme
 
-class Homepage : ComponentActivity() {
+@AndroidEntryPoint
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -22,22 +26,17 @@ class Homepage : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting2("Android")
+                    Home()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting2(name: String) {
-    Text(text = "Hello $name!")
-}
-
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview2() {
+fun DefaultPreview() {
     NewsReaderApp584777Theme {
-        Greeting2("Android")
+        Text("Android")
     }
 }
